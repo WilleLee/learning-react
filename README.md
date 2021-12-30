@@ -14,3 +14,6 @@ This is where I learn how to build web-apps using react.
 3. copying JSX tags & "importing components"!!
 ...original bootstrap의 code를 가져와도 됨
 
+4. react router ... npm install react-router-dom@5 -> 설치
+... index.js -> import { BrowserRouter } from 'react-router-dom';
+... react router -> 하나의 HTML만으로 보이는 HTML의 내용을 변경해 다른 페이지처럼 작동!
