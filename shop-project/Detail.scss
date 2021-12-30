@@ -1,0 +1,59 @@
+/*Detail.js 에 담을 css*/
+@import './_reset.scss';  // reset sass를 따로 만들어놓고 import 해오기
+
+
+$mainColor : #ff0000;
+
+
+.red {
+  color: $mainColor;
+}
+
+@mixin 함수() {
+  background: #eeeeee;
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+}
+
+.myAlert {
+  @include 함수(); // mixin으로 생성한 함수형 속성들을 불러옴
+  p {
+    margin : 0;
+    color: rgb(248, 157, 172);
+  }
+}
+
+.myAlertYellow {
+  @extend .myAlert; // .myAlert의 모든 속성을 가져오
+  background : #ffe591;
+}
+.myAlertYellow.invisible {
+  display : none;
+}
+
+
+
+// nesting
+
+/*
+div.container h4 {
+  color : blue;
+}
+div.container p {
+  color : green;
+}
+*/
+
+/*
+div.container {
+  h4 {
+    color : blue;
+  }
+  p {
+    color : green;
+  }
+}
+*/

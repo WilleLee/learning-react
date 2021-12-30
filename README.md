@@ -17,3 +17,23 @@ This is where I learn how to build web-apps using react.
 4. react router ... npm install react-router-dom@5 -> 설치
 ... index.js -> import { BrowserRouter } from 'react-router-dom';
 ... react router -> 하나의 HTML만으로 보이는 HTML의 내용을 변경해 다른 페이지처럼 작동!
+
+5. styled componenets (CSS in JS)
+... npm install styled-components -> import styled from 'styled-components'
+
+6. sass : npm install node-sass ( sass를 css로 컴파일해줌 )
+
+
+7. lifecycle hook / useEffect
+
+... component lifecycle : appear -> update (rerendering) -> exit
+component의 lifecycle 중간중간에 명령을 줄 수 있음 (lifecycle hooks)
+
+class ... extends React.Component {
+  componentDidMount(){ ... }
+  componentWillUnmount(){ ... }
+}
+
+... import { useEffect } from 'react';
+
+useEffect( codes to operate! )

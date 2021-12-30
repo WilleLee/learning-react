@@ -5,16 +5,13 @@
 import { useState } from 'react';
 import './App.css';
 import { Navbar, Container, Nav, NavDropdown, Card, Button } from 'react-bootstrap';
-import productData from './data'; // 불러오고자 하는 데이터의 양이 많을 때는 export, import 사용!
-//import 변수명 from 경로
+import productData from './data';
 import Detail from './Detail';
-
 import { Link, Route, Switch } from 'react-router-dom';
 
 function App() {
 
   let [products, productsFunction] = useState(productData);
-  // Detail.js에 state 저장할 수도 있지만, 중요한 데이터는 항상 App component에 보관하기
 
   return (
     <div className="App">
@@ -26,14 +23,15 @@ function App() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link><Link to="/">Home</Link></Nav.Link>
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
               <NavDropdown title="Details" id="basic-nav-dropdown">
-                <NavDropdown.Item><Link to="/detail/0">product0</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/detail/1">product1</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/detail/2">product2</Link></NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/detail/0">product0</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/detail/1">product1</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/detail/2">product2</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.1">Action
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                 <NavDropdown.Divider />
