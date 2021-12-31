@@ -8,10 +8,15 @@ import { Navbar, Container, Nav, NavDropdown, Card, Button } from 'react-bootstr
 import productData from './data';
 import Detail from './Detail';
 import { Link, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 
 function App() {
 
   let [products, productsFunction] = useState(productData);
+/*
+  let [ajaxResult, ajaxResultFunction] = useState('');
+  let [ajaxClicked, ajaxClickedFunction] = useState(false);
+*/
 
   return (
     <div className="App">
@@ -62,7 +67,46 @@ function App() {
           
           <Product products={products} />
 
+          <button className='btn btn-primary' onClick={()=>{
+
+            //로딩중이라는 UI 띄움
+
+            // axios.post('서버URL', { id : '', pw : 1234 }).then();
+
+            axios.get('https://codingapple1.github.io/shop/data2.json')
+            .then((result)=>{
+
+              //로딩중 UI 안 보이게
+
+              productsFunction([...products, ...result.data]);
+            })
+            .catch(()=>{ console.log('실패했어요') })
+
+          }}>Load more</button>
+{/*
+          {
+            ajaxClicked === true
+            ? <LoadedProduct ajaxResult={ajaxResult} />
+            : null
+          }
+        
+          <button className='btn btn-primary' onClick={()=>{
+
+            axios.get('https://codingapple1.github.io/shop/data2.json')// axios.get(데이터 요청할 URL)
+            .then((result)=>{
+              ajaxResultFunction(result.data);
+              ajaxClickedFunction(true);
+            }) // 요청 성공했을 때
+            .catch(()=>{ console.log('실패했어요') }) // 요청 실패했을 때;
+            
+
+          }}>Load more</button>
+*/}
+
+          
+
         </Route> {/* main route ends */}
+
 
         <Route path="/detail/:id"> {/* detail 하위 파라미터 생성 ... value에 따른 페이지 부여 가능 */}
           <Detail products={products} />
@@ -93,7 +137,7 @@ function Product(props){
           props.products.map( function(value, index){
             return (
               <div className='col-md-4' key={index}>
-                <img src={value.link} alt="" width="100%" />
+                <img src={`https://codingapple1.github.io/shop/shoes${index+1}.jpg`} alt="" width="100%" />
                 <h4>{value.title}</h4>
                 <p>{value.content}</p>
                 <p>{value.price} won</p>
@@ -105,5 +149,27 @@ function Product(props){
     </div>
   )
 }
+
+/*
+function LoadedProduct(props){
+  return (
+    <div className="container">
+      <div className="row">
+        {
+          props.ajaxResult.map( function(value, index){
+            return (
+              <div className='col-md-4' key={index}>
+                <h4>{value.title}</h4>
+                <p>{value.content}</p>
+                <p>{value.price} won</p>
+              </div>
+            )
+          } )
+        }
+      </div>
+    </div>
+  )
+}
+*/
 
 export default App;

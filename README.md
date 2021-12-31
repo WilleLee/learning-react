@@ -37,3 +37,9 @@ class ... extends React.Component {
 ... import { useEffect } from 'react';
 
 useEffect( codes to operate! )
+
+8. Ajax : 서버에 새로고침 없이 요청을 할 수 있게 도와줌
+
+npm install axios ... import axios from 'axios';
+
+axios : json을 object로 알아서 바꿔줌 -> 코드가 짧아져요
