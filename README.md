@@ -43,3 +43,22 @@ useEffect( codes to operate! )
 npm install axios ... import axios from 'axios';
 
 axios : json을 object로 알아서 바꿔줌 -> 코드가 짧아져요
+
+9. redux ... npm install redux react-redux (redux와 react-redux 설치)
+
+redux 쓰는 이유?
+.. 1. props 없이 모든 components가 같은 state 공유 가능
+
+... index.js .. import { Provider } from 'react-redux';
+... .. App을 Provider로 감쌈
+... .. let 변수명 = createStore( ()=>{ return [ ... ] } ); (state 생성, 저장)
+... .. Provider store={store}
+... 대상.js에서 데이터바인딩
+... .. function state를props화(state){ // redux 변수명 데이터 가져와서 props로 변화
+  return {
+    state : state // state의 모든 데이터를 state라는 props로 저장
+  }
+}
+... .. export default connect(state를props화))(export하는 함수명)
+
+.. 2. state 데이터 관리기능
