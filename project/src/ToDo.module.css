@@ -1,0 +1,53 @@
+.formContainer {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.input {
+  font-size: 16px;
+  width: 90%;
+  line-height: 24px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.btn {
+  background-color: #eee;
+  border: 1px solid #999;
+  padding: 5px 7px;
+  cursor: pointer;
+}
+
+.deleteInfo {
+  display: flex;
+  align-items: center;
+  height : 40px;
+  width: 300px;
+  margin-top: 10px;
+  background-color: rgb(255, 208, 80);
+  border-radius : 2px;
+}
+.deleteInfo p {
+  font-size: 18px;
+  color : #777;
+}
+
+.toDoList {
+  display: flex;
+  flex-direction: column;
+  padding : 0;
+  margin-top: 20px;
+}
+.toDoLists {
+  margin-bottom: 5px;
+  width: 90%;
+  line-height: 40px;
+  border-radius: 5px;
+  background-color: tomato;
+  color: white;
+}
+.toDoLists:hover {
+  background-color: rgb(255, 198, 188);
+  color: tomato;
+  font-weight: bold;
+}
